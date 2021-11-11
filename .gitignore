@@ -1,0 +1,5 @@
+.terraform
+.terraform.lock.hcl
+groovy-camera-325607-8b2d1dce0f68.json
+terraform.tfstate
+terraform.tfstate.backup
