@@ -1,4 +1,4 @@
-name           = "kotik"
+name           = "my-server"
 machine_type   = "e2-small"
 zone           = "us-central1-a"
 desired_status = "RUNNING"
@@ -10,3 +10,5 @@ source_ranges  = ["0.0.0.0/0"]
 target_tags    = ["http-server"]
 algorithm      = "RSA"
 rsa_bits       = "2048"
+
+

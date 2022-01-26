@@ -1,4 +1,4 @@
-resource "google_compute_instance" "kotik_Vm" {
+resource "google_compute_instance" "my_server" {
   name           = var.name
   machine_type   = var.machine_type
   zone           = var.zone
@@ -6,6 +6,9 @@ resource "google_compute_instance" "kotik_Vm" {
 
   network_interface {
     network = var.network
+    access_config {
+      nat_ip = google_compute_address.static.address
+    }
   }
 
   boot_disk {
@@ -15,9 +18,15 @@ resource "google_compute_instance" "kotik_Vm" {
   }
 
   metadata = {
-    ssh-keys = "unit:${tls_private_key.example.public_key_pem}"
+    ssh-keys = "${random_string.username.result}:${tls_private_key.example.public_key_openssh}"
   }
 }
+
+
+resource "google_compute_address" "static" {
+  name = "ipv4-address"
+}
+
 
 resource "google_compute_firewall" "http-server" {
   name    = "${var.name}allow-http"
@@ -40,8 +49,26 @@ resource "tls_private_key" "example" {
 resource "local_file" "key" {
   content = templatefile("${path.module}/templates/private_key.tmpl",
     {
-    ssh_private_key = tls_private_key.example.private_key_pem
+      ssh_private_key = tls_private_key.example.private_key_pem
     }
   )
-  filename = "private_key"
+  filename = "Files/private_key"
+}
+
+resource "local_file" "AnsibleInventory" {
+  content = templatefile("${path.module}/templates/inventory.tmpl",
+    {
+      ansible_username        = "${random_string.username.result}",
+      ansible_ip              = google_compute_address.static.address,
+      ansible_instance_name   = var.name,
+      ansible_ssh_common_args = "'-o StrictHostKeyChecking=no'",
+      ansible_connection      = "ssh"
+    }
+  )
+  filename = "Files/inventory"
+}
+
+resource "random_string" "username" {
+  length  = 6
+  special = false
 }

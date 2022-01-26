@@ -13,5 +13,6 @@ module "Vm" {
   target_tags    = var.target_tags
   algorithm      = var.algorithm
   rsa_bits       = var.rsa_bits
+
 }
 

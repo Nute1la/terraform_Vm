@@ -1,5 +1,7 @@
-.terraform
+.terraform/*
 .terraform.lock.hcl
-groovy-camera-325607-8b2d1dce0f68.json
+diesel-airfoil-339017-de3ea98a1371.json
 terraform.tfstate
 terraform.tfstate.backup
+Files
+.terraform/terraform.tfstate

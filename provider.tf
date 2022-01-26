@@ -1,5 +1,5 @@
 provider "google" {
-    project = "groovy-camera-325607"
-    region = "us-central1"
-    zone = "us-central1-c"
+  project = "diesel-airfoil-339017"
+  region  = "us-central1"
+  zone    = "us-central1-c"
 }
