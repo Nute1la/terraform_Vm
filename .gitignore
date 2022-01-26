@@ -4,4 +4,4 @@ diesel-airfoil-339017-de3ea98a1371.json
 terraform.tfstate
 terraform.tfstate.backup
 Files
-.terraform/terraform.tfstate
+**.tfstate
