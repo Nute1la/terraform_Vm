@@ -1,0 +1,6 @@
+[hosts]
+ansible_host=${ansible_ip} ansible_ssh_user=${ansible_username}  
+
+[all:vars]
+ansible_ssh_common_args = ${ansible_ssh_common_args}
+ansible_connection = ${ansible_connection}

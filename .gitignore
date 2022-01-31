@@ -1,7 +1,7 @@
-.terraform/*
-.terraform.lock.hcl
-diesel-airfoil-339017-de3ea98a1371.json
-terraform.tfstate
-terraform.tfstate.backup
+terraform/.terraform/*
+terraform/.terraform.lock.hcl
+terraform/diesel-airfoil-339017-de3ea98a1371.json
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
 Files
 **.tfstate
