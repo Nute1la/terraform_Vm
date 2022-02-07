@@ -1,0 +1,9 @@
+---
+
+- name: jinja docker-compose
+  template:
+    src: templates/docker-compose.j2
+    dest: /root/nginx-rproxy/docker-compose.yml
+  notify:
+  - docker-compose up
+...

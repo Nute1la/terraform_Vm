@@ -1,5 +1,5 @@
 [hosts]
-ansible_host=${ansible_ip} ansible_ssh_user=${ansible_username}  
+host1 ansible_host=${ansible_ip} ansible_ssh_user=${ansible_username} ansible_ssh_private_key_file=../Files/private_key
 
 [all:vars]
 ansible_ssh_common_args = ${ansible_ssh_common_args}

@@ -1,0 +1,7 @@
+# описать запуск роли 
+--- 
+- hosts: all
+  become: true
+  roles: 
+   - vm_administration
+...

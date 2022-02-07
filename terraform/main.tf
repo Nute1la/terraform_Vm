@@ -1,5 +1,6 @@
 module "Vm" {
   source = "./Modules/Vm"
+  # count  = 3
 
   name           = var.name
   machine_type   = var.machine_type
@@ -15,4 +16,6 @@ module "Vm" {
   rsa_bits       = var.rsa_bits
 
 }
+
+
 

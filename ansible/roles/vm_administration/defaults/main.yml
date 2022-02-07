@@ -1,0 +1,7 @@
+---
+NGINX: 80
+POINT1: 8081
+POINT2: 8082
+DATA_FROM_CONTAINERS: ./data
+...
+# defaults file for vm_administration

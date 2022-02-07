@@ -1,0 +1,11 @@
+---
+
+- name: copying dir with files
+  become: true 
+  copy:
+    src: files/
+    dest: /root
+    owner: root
+    group: root
+    mode: 0644
+...

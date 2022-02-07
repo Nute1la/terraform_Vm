@@ -24,12 +24,12 @@ resource "google_compute_instance" "my_server" {
 
 
 resource "google_compute_address" "static" {
-  name = "ipv4-address"
+  name = "${var.name}-ipv4-address"
 }
 
 
 resource "google_compute_firewall" "http-server" {
-  name    = "${var.name}allow-http"
+  name    = "${var.name}-allow-http"
   network = var.network
 
   allow {
@@ -52,7 +52,8 @@ resource "local_file" "key" {
       ssh_private_key = tls_private_key.example.private_key_pem
     }
   )
-  filename = "../Files/private_key"
+  filename        = "../Files/private_key"
+  file_permission = 400
 }
 
 resource "local_file" "AnsibleInventory" {

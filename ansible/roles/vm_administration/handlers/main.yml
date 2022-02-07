@@ -1,0 +1,6 @@
+---
+# handlers file for vm_administration
+
+- import_tasks: service.yml
+- import_tasks: docker_up.yml
+...
