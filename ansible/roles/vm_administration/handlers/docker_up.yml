@@ -3,5 +3,5 @@
 - name: docker-compose up
   become: true
   shell: | 
-    cd /root/nginx-rproxy && /usr/local/bin/docker-compose up -d
+    cd /root/ && /usr/local/bin/docker-compose up -d
 ...

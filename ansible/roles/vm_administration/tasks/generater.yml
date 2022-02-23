@@ -1,9 +1,11 @@
 ---
 
 - name: jinja docker-compose
-  template:
+  ansible.builtin.template:
     src: templates/docker-compose.j2
-    dest: /root/nginx-rproxy/docker-compose.yml
+    dest: /root/docker-compose.yml
   notify:
   - docker-compose up
+  tags: 
+    - jinja
 ...
