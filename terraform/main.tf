@@ -42,8 +42,3 @@ resource "tls_private_key" "example" {
   algorithm = var.algorithm
   rsa_bits  = var.rsa_bits
 }
-
-
-#output "test" {
-#  value = module.Vm.*.ip
-#}
