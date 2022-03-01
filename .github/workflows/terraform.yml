@@ -67,7 +67,9 @@ jobs:
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: cd tf folder
-      run: echo "${{ secrets.TF_API_TOKEN }}" > ${{env.working-directory}}/credentials.json
+      run: |
+        cd ${{env.working-directory}}
+        echo "${{ secrets.TF_API_TOKEN }}" > credentials.json
       
     - name: Checkout
       uses: actions/checkout@v2
