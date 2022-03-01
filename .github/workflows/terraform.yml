@@ -93,4 +93,5 @@ jobs:
       
       #Start ansible
     - name: Ansible deployment
-      run: ansible-playbook -i Files/inventory ansible/playbook1.yml     
+      run: ansible-playbook -i ../Files/inventory ansible/playbook1.yml    
+      working-directory: ansible
