@@ -16,8 +16,8 @@ variable "source_ranges" {}
 
 variable "target_tags" {}
 
+variable "image" {}
+
 variable "algorithm" {}
 
 variable "rsa_bits" {}
-
-variable "image" {}

@@ -16,9 +16,7 @@ variable "source_ranges" {}
 
 variable "target_tags" {}
 
-variable "algorithm" {}
-
-variable "rsa_bits" {}
+variable "tls_private_key" {}
 
 variable "image" {}
 
