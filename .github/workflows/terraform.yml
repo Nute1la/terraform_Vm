@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
-      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.TF_API_TOKEN }}
+      GOOGLE_APPLICATION_CREDENTIALS: credentials.json
       working-directory: terraform
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -66,18 +66,13 @@ jobs:
 
     steps:
     # Checkout the repository to the GitHub Actions runner
+    - name: cd tf folder
+      run: echo ${{ secrets.TF_API_TOKEN }} > credentials.json
+      
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    - name: cd tf folder
-      run: ls -all
-      working-directory: ${{env.working-directory}}
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
