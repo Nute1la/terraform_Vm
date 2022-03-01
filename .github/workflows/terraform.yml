@@ -79,7 +79,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
       working-directory: ${{env.working-directory}}
-    # Checks that all Terraform configuration files adhere to a canonical format
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
@@ -91,3 +90,7 @@ jobs:
       if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: terraform apply -auto-approve
       working-directory: ${{env.working-directory}}
+      
+      #Start ansible
+    - name: Ansible deployment
+      run: ansible-playbook -i Files/inventory ansible/playbook1.yml     
