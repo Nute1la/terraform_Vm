@@ -6,8 +6,8 @@ services:
     container_name: webserver
     restart: unless-stopped
     ports:
-      - {{ NGINX }}:80
-      - {{ NGINX }}:443
+      - {{ NGINX_HTTP }}:80
+      - {{ NGINX_HTTPS }}:443
 networks:
    app-net:
         name: app-net
