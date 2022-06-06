@@ -90,7 +90,7 @@ jobs:
       run: terraform apply -auto-approve
       working-directory: ${{env.working-directory}}
       
-      #Start ansible
-    - name: Ansible deployment
-      run: ansible-playbook -i ../Files/inventory playbook1.yml    
-      working-directory: ansible
+#       #Start ansible
+#     - name: Ansible deployment
+#       run: ansible-playbook -i ../Files/inventory playbook1.yml    
+#       working-directory: ansible
